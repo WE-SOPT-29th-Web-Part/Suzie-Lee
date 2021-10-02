@@ -1,0 +1,39 @@
+body {
+  color: red;
+}
+
+div {
+  font: size 30px;
+}
+* {
+  color: green;
+}
+/*  */
+#abc {
+  font-size: 100px;
+}
+
+.btn {
+  height: 100px;
+}
+
+.inner {
+  /* 모든 inner에 대해 */
+}
+.outer > .inner {
+  /* 이것의 자식에게만 해당된다 */
+}
+
+.outer .inner:hover {
+  /* hover :커서 올렸을 때 상태 변화 */
+  /* outer 안에있는 모든 inner(depth)상관없이 다 준다 */
+}
+
+.inner:before {
+  content: "abc";
+  /* 글자 앞에 넣기 after은 글자 뒤에 넣기 */
+}
+
+div {
+  background-color: gray !important;
+}
