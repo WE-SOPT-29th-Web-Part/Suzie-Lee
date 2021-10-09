@@ -12,7 +12,7 @@
     <header class="header"><h1 class="header__logo">To Do List</h1></header>
     <nav class="options">
       <button class="options_btn options__today">오늘만 보기</button>
-      <button class="options_btn options_tomorrow">내일만 보기</button>
+      <button class="options_btn options__tomorrow">내일만 보기</button>
       <button class="options_btn options__both">함께 보기</button>
     </nav>
     <main class="todos">
@@ -21,18 +21,18 @@
         <ul class="todos__items">
           <li class="todos__item">
             <span class="todos__name">HTML 공부</span>
-            <button>X</button>
+            <button class="todos__delete">X</button>
           </li>
           <li class="todos__item">
             <span class="todos__name">WEB 공부</span>
-            <button class="delete">X</button>
+            <button class="todos__delete">X</button>
           </li>
           <li class="todos__item">
             <span class="todos__name">CSS 공부</span> <button>X</button>
           </li>
         </ul>
         <input type="text" class="todos__input" />
-        <div class="todos_btn-wrapper">
+        <div class="todos__btn-wrapper">
           <button class="todos__add">+</button>
         </div>
       </section>
@@ -41,12 +41,12 @@
         <!-- <section></section> -->
         <ul class="todos__items">
           <li class="todos__item">
-            <span>HTML 공부</span>
-            <button>X</button>
+            <span class="todos__name">HTML 공부</span>
+            <button class="todos__delete">X</button>
           </li>
           <li class="todos__item">
             <span class="todos__name">WEB 공부</span>
-            <button class="delete">X</button>
+            <button class="todos__delete">X</button>
           </li>
           <li class="todos__item">
             <span class="todos__name">CSS 공부</span> <button>X</button>
