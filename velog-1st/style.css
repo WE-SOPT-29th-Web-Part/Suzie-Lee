@@ -1,0 +1,187 @@
+body {
+  margin: 0, 10px;
+  height: 100vh;
+  /* 100 viewport height 보이는 화면을 다 차지하라 100퍼센트 */
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+}
+h4 {
+  margin: 0;
+  font-weight: bold;
+}
+* {
+  box-sizing: inherit;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 64px;
+
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: black;
+}
+.search {
+  height: 2rem;
+  align-items: center;
+}
+.login {
+  font: 400 13.3333px;
+  align-items: center;
+
+  background: rgb(52, 58, 64);
+  color: white;
+  padding-left: 1rem;
+  padding-top: 1px;
+  font-weight: bold;
+  border-radius: 1rem;
+  padding-right: 1rem;
+  border: none;
+  height: 2rem;
+}
+.nav {
+  height: 48px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* margin: auto; */
+}
+.trending,
+.schedule {
+  margin: 0px 5px 0px 0px;
+}
+
+.nav__trending,
+.nav__recent,
+.nav__dropdown {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  padding: 15px 0;
+}
+.nav__trending {
+  border-bottom: 2px solid black;
+}
+.nav__filter {
+  display: flex;
+  align-items: center;
+}
+.nav__left {
+  display: flex;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+/* @media (max-width: 1056px) */
+
+.card {
+  width: calc(50% - 2rem);
+}
+.card {
+  display: flex;
+  margin: 1rem;
+  overflow: hidden;
+  flex-direction: column;
+  width: 320px;
+  height: 411.719px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: white;
+  transition-property: box-shadow, transform;
+  transition-duration: 0.25s, 0.25s;
+  transition-timing-function: ease-in, ease-in;
+  transition-delay: 0s, 0s;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 20px #ddd;
+  background-color: #e6e6e6;
+  transform: translateY(-15px);
+}
+
+.card__top {
+  box-sizing: border-box;
+  height: 200px;
+  width: 320px;
+  display: block;
+}
+
+.card__middle {
+  padding: 1rem;
+  flex-direction: column;
+
+  display: flex;
+  flex: 1 1 0%;
+}
+.card__title {
+  font-size: 1rem;
+  margin: 0px 0px 0.25rem;
+}
+.card__text {
+  margin: 0.5rem 0px 0px 0px;
+  flex: 1 1 0%;
+  display: block;
+  color: rgb(73, 80, 87);
+  font-size: 0.875rem;
+}
+.card__date {
+  font-size: 0.75rem;
+  color: rgb(134, 142, 150);
+}
+.card__bottom {
+  padding: 0.625rem 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  border-top: 1px solid rgb(248, 249, 250);
+  justify-content: space-between;
+}
+
+.card__bottom-left {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.card__profile-img {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  margin-right: 0.5rem;
+}
+
+.card__profile-by {
+  margin-left: 0.5rem;
+  display: flex;
+  color: rgb(134, 142, 150);
+}
+
+.card__profile-name {
+  margin-left: 0.5rem;
+  display: flex;
+  color: rgb(52, 58, 64);
+  font-weight: bold;
+}
+
+.card__bottom-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.favorite {
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+}
