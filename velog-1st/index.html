@@ -9,8 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
 
-    <title>Document</title>
+    <title>velog</title>
   </head>
   <body>
     <header class="header">
@@ -30,8 +31,25 @@
         </div>
         <div class="nav__filter"></div>
         <div class="nav__dropdown">
-          이번 주<span class="material-icons"> arrow_drop_down </span>
-        </div>
+          <button class="nav__dropdown-btn">
+              <span class="nav__dropdown-text selected-item">이번 주</span>
+              <div class="nav__dropdown-icon">
+                <span class="material-icons schedule"> arrow_drop_down </span>
+              </div>
+          </button>
+          <div class="nav__dropdown-wrapper">
+              <ul class="dropdown__items">
+                  <li class="dropdown__item today">오늘</li>
+                  <li class="dropdown__item week selected">
+                      이번 주
+                  </li>
+                  <li class="dropdown__item month">
+                      이번 달
+                  </li>
+                  <li class="dropdown__item year">올해</li>
+              </ul>
+          </div>
+       
       </div>
       <div class="nav__right">
         <div class="nav__more">
@@ -553,5 +571,6 @@
         </div>
       </article>
     </main>
+    <section class="modal" id="modal"></section>
   </body>
 </html>

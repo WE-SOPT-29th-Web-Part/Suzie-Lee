@@ -10,34 +10,17 @@
 
 //DOM 요소를 가지고 오는 방법
 
-const input = document.querySelector(".todos__input");
-const addBtn = document.querySelector(".todos__add");
-const items = document.querySelector(".todos__items");
+const inputs = document.querySelectorAll(".todos__add-input");
+const addBtns = document.querySelectorAll(".todos__add-btn");
+const items = document.querySelectorAll(".todos__items");
 
-addBtns.forEach((addBtn) => {
-  //btn1, btn2 에 각각 addEventListener를 붙여준다
-  addBtn.addEventListener("click", () => {
-    onAdd();
-  });
-});
 //1. add 버튼을 눌렀을 때. list가 추가되도록
 //a. add 버튼을 눌렀을 때, input의 value를 가져오기
 //b. 가져온 value를 바탕으로, list 만들기
 
-addBtn.addEventListener("click", (index) => {
-  if (!input[index].value) return;
-  onAdd();
-  //2개의 인수로 필요합니다. 처음은 이벤트명, 두번째는 이벤트가 감지되었을 때 실행할 (콜백)
-  //2. enter 키보드 키를 눌렀을 때 list가 추가되도록
-  //다양한 이벤트가 존재한다. click,keypress,scroll
-});
+const onAdd = (index) => {
+  if (!inputs[index].value) return;
 
-input.addEventListener("keyup", (event) => {
-  if (!input.value) return;
-  if (event.key === "Enter") onAdd();
-});
-
-const onAdd = () => {
   const li = document.createElement("li");
   const div = document.createElement("div");
   const deleteBtn = document.createElement("button");
@@ -51,22 +34,51 @@ const onAdd = () => {
 
   deleteBtn.innerText = "X";
   // deleteBtn.setAttribute.src
-  span.innerText = input.value;
+  span.innerText = inputs[index].value;
 
-  items.appendChild(li);
+  items[index].appendChild(li);
   li.appendChild(span);
   li.appendChild(deleteBtn);
-
-  input.value = "";
+  console.log("itmes[index] :>> ", items[index]);
+  input[index].value = " ";
 
   deleteBtn.addEventListener("click", () => {
     li.remove();
   });
 };
+addBtns.forEach((addBtn, index) => {
+  //btn1, btn2 에 각각 addEventListener를 붙여준다
+  addBtn.addEventListener("click", () => {
+    onAdd(index);
+    //2개의 인수로 필요합니다. 처음은 이벤트명, 두번째는 이벤트가 감지되었을 때 실행할 (콜백)
+    //2. enter 키보드 키를 눌렀을 때 list가 추가되도록
+    //다양한 이벤트가 존재한다. click,keypress,scroll
+  });
+});
 
+inputs.forEach((input, index) =>
+  input.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      onAdd(index);
+    }
+  })
+);
 //querySelectorAll을 통해서, 2개 요소를 다 가지고 와서,
 
 const nav = document.querySelector(".options");
-const todos = document.querySelector(".todos > section");
+const todos = document.querySelectorAll(".todos > section");
 
-nav.addEventListener("click", () => {});
+nav.addEventListener("click", (event) => {
+  console.log("todos :>> ", todos);
+
+  if (event.target.className.includes("options__today")) {
+    todos[0].classList.add("open");
+    todos[1].classList.remove("open");
+  } else if (event.target.className.includes("options__tommorow")) {
+    todos[0].classList.remove("open");
+    todos[1].classList.add("open");
+  } else if (event.target.className.includes("options__both")) {
+    todos[0].classList.add("open");
+    todos[1].classList.add("open");
+  }
+});
