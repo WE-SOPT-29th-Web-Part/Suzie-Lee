@@ -1,12 +1,17 @@
 body {
   margin: 0;
+  padding: 0;
+
   height: 100vh;
   /* 100 viewport height 보이는 화면을 다 차지하라 100퍼센트 */
   display: flex;
   flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
 }
 h1 {
   margin: 0;
+  /* padding: 0; */
 }
 * {
   box-sizing: border-box;
@@ -45,33 +50,49 @@ ul {
   border: 0;
   color: white;
 }
+.todos__add {
+  display: flex;
+  width: 100%;
+  /* padding: 10px; */
+}
 
 .todos {
   background-color: whitesmoke;
   display: flex;
   flex-grow: 1;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   /* 1이면 남은 공간을 모두 차지한다. */
   /* flex-direction: row; */
 }
-
 .todos__today,
-.todos__tomorrow {
-  width: 100%;
+.todos__tommorow {
+  width: 0;
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  /* justify-content : center */
+  align-items: center;
+  visibility: hidden;
+  transition: all 300ms ease;
 }
 
-.todos__today {
-  border-right: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; flex-direction과 같은 방향의 정렬 */
-  align-items: center;
+.todos__today.open,
+.todos__tommorow.open {
+  width: 100%;
+  visibility: visible;
 }
-.todos__tomorrow {
-  border-right: 1px solid black;
+.todos__header {
+  padding: 15px;
   display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-style: inherit;
+}
+.todos__list {
   flex-direction: column;
-  /* justify-content: center; flex-direction과 같은 방향의 정렬 */
-  align-items: center;
+  justify-content: space-evenly;
 }
 
 .todos__items {
@@ -83,6 +104,8 @@ ul {
 .todos__item {
   display: flex;
   flex-direction: row;
+  align-items: center;
+
   justify-content: space-between;
   border-bottom: 1px solid black;
   height: 36px;
@@ -93,14 +116,21 @@ ul {
   line-height: 36px;
 }
 
-.todos__input {
+.todos__add-input {
   width: 100%;
   border: 0;
   outline: 0;
 }
+.todos__add-btn {
+  background-color: transparent;
+}
+.todos__delete {
+  background-color: transparent;
+}
 button {
   cursor: pointer;
 }
+
 .footer {
   color: white;
   background-color: thistle;
