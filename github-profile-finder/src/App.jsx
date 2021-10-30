@@ -6,7 +6,8 @@ import SearchBar from "./components/SearchBar";
 import styled from "styled-components";
 
 function App() {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({ data: null, status: "idle" });
+  //api 통신 상태에 따른 분기처리
   return (
     <Root>
       <Header />

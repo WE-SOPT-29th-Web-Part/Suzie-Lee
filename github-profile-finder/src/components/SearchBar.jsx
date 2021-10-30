@@ -10,11 +10,30 @@ const SearchBar = ({ setUserInfo }) => {
 
   const handleSubmit = async (e) => {
     e.preventfault();
+    setUserInfo((currentUserInfo) => ({
+      ...currentUserInfo,
+      status: "pending",
+      data: null,
+    }));
+    try {
+      const { data } = await axios.get(`https://api.github.com/users/${user}`);
+      setUserInfo((currentUserInfo) => ({
+        ...currentUserInfo,
+        data: data,
+        status: "resolved",
+      }));
+    } catch (error) {
+      setUserInfo((currentUserInfo) => ({
+        ...currentUserInfo,
+        data: null,
+        status: "rejected",
+      }));
+      console.log(error);
+    }
 
-    const { data } = await axios.get(`https://api.github.com/users/${user}`);
-    setUserInfo(data);
     setUser("");
   };
+  //상태를 정의 했을때 상황에 따라 어떤 화면을 보여줄 지 결정해준다.
 
   return (
     <form onSubmit={handleSubmit}>
