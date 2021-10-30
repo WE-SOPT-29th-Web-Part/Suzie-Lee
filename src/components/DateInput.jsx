@@ -8,10 +8,15 @@ const DateInput = (props) => {
   const handleChange = (e, setState) => {
     setState(e.target.value);
   };
-
+  const makeDateToday = () => {
+    const now = new Date();
+    props.setYear(now.getFullYear());
+    props.setMonth(now.getMonth() + 1);
+    props.setDate(now.getDate());
+  };
   return (
     <div>
-      <button>오늘</button>
+      <button onClick={makeDateToday}>오늘</button>
       <div>
         <input
           type="text"
@@ -40,7 +45,7 @@ const DateInput = (props) => {
             handleChange(e, props.setDate);
           }}
         />
-        일
+        일을 기준으로
       </div>
     </div>
   );
