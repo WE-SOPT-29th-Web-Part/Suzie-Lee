@@ -22,7 +22,7 @@ function App() {
         setDate={setDate}
       />
       <CenterText />
-      <Result />
+      <Result year={year} month={month} date={date} />
       <Footer />
     </div>
   );

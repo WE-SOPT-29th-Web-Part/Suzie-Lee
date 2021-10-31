@@ -18,21 +18,26 @@ export default function Text1({ year, month, date }) {
         setResultDate(`yyyy년 mm월 dd일`);
         return;
       }
-      const tempDate = new Date();
-      tempDate.setFullYear(year);
-      tempDate.setMonth(Number(month) - 1);
-      tempDate.setDate(Number(date) + Number(value) - 1);
-      setResultDate(
-        `${tempDate.getFullYear()}년 ${
-          Number(tempDate.getMonth()) + 1
-        }월 ${tempDate.getDate()}일`
+      let tempDate = new Date();
+      console.log(year, month, date);
+      tempDate.setFullYear(
+        Number(year),
+        Number(month) - 1,
+        Number(date) + Number(value) - 1
       );
+      // tempDate.setMonth(Number(month) - 1);
+      // tempDate.setDate(Number(date) + Number(value) - 1);
+
+      const result = `${tempDate.getFullYear()}년 ${
+        tempDate.getMonth() + 1
+      }월 ${tempDate.getDate()}일`;
+      setResultDate(result);
     },
     [year, month, date]
   );
   useEffect(() => {
     printDate(inputValue);
-  }, [inputValue, printDate, year, month, date]);
+  }, [inputValue, printDate]);
   return (
     <div className="text">
       <div className="text__left">

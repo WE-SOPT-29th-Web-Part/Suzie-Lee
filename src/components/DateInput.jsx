@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from "react";
 
-const DateInput = (props) => {
+export default function DateInput({
+  year,
+  month,
+  date,
+  setYear,
+  setMonth,
+  setDate,
+}) {
   useEffect(() => {
-    console.log(props.month);
-  }, [props.year, props.month, props.date]);
+    console.log(month);
+  }, [year, month, date]);
 
   const handleChange = (e, setState) => {
     setState(e.target.value);
   };
   const makeDateToday = () => {
     const now = new Date();
-    props.setYear(now.getFullYear());
-    props.setMonth(now.getMonth() + 1);
-    props.setDate(now.getDate());
+    setYear(now.getFullYear());
+    setMonth(now.getMonth() + 1);
+    setDate(now.getDate());
   };
   return (
     <div>
@@ -21,9 +28,9 @@ const DateInput = (props) => {
         <input
           type="text"
           className="dateInput__input"
-          value={props.year}
+          value={year}
           onChange={(e) => {
-            handleChange(e, props.setYear);
+            handleChange(e, setYear);
           }}
           //   onClick, onScroll, onKeyPress
         />
@@ -31,24 +38,22 @@ const DateInput = (props) => {
         <input
           type="text"
           className="dateInput__input"
-          value={props.month}
+          value={month}
           onChange={(e) => {
-            handleChange(e, props.setMonth);
+            handleChange(e, setMonth);
           }}
         />
         월
         <input
           type="text"
           className="dateInput__input"
-          value={props.date}
+          value={date}
           onChange={(e) => {
-            handleChange(e, props.setDate);
+            handleChange(e, setDate);
           }}
         />
         일을 기준으로
       </div>
     </div>
   );
-};
-
-export default DateInput;
+}

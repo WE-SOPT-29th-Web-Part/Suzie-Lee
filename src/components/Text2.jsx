@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-const Text2 = ({ year, month, date }) => {
+export default function Text1({ year, month, date }) {
   const [resultDate, setResultDate] = useState("yyyy년 mm월 dd일");
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState("");
   const handleChange = (e) => {
     if (!e.target.value) {
       setInputValue("");
       setResultDate(`yyyy년 mm월 dd일`);
       return;
     }
+
     setInputValue(e.target.value);
     printDate(e.target.value);
   };
@@ -20,14 +21,14 @@ const Text2 = ({ year, month, date }) => {
         return;
       }
       const tempDate = new Date();
-      tempDate.setFullYear(year);
+      tempDate.setFullYear(Number(year));
       tempDate.setMonth(Number(month) - 1);
       tempDate.setDate(Number(date) - Number(value));
-      setResultDate(
-        `${tempDate.getFullYear()}년 ${
-          Number(tempDate.getMonth()) + 1
-        }월 ${tempDate.getDate()}일`
-      );
+
+      const result = `${tempDate.getFullYear()}년 ${
+        tempDate.getMonth() + 1
+      }월 ${tempDate.getDate()}일`;
+      setResultDate(result);
     },
     [year, month, date]
   );
@@ -46,4 +47,4 @@ const Text2 = ({ year, month, date }) => {
       <div>{resultDate}</div>
     </div>
   );
-};
+}
