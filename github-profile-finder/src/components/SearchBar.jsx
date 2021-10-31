@@ -6,17 +6,20 @@ const SearchBar = ({ setUserInfo }) => {
   const [user, setUser] = useState("");
   const handleChange = (e) => {
     setUser(e.target.value);
+    console.log(e.target.value);
   };
 
   const handleSubmit = async (e) => {
-    e.preventfault();
+    e.preventDefault();
     setUserInfo((currentUserInfo) => ({
       ...currentUserInfo,
       status: "pending",
       data: null,
     }));
     try {
+      console.log("here");
       const { data } = await axios.get(`https://api.github.com/users/${user}`);
+      console.log(data);
       setUserInfo((currentUserInfo) => ({
         ...currentUserInfo,
         data: data,
