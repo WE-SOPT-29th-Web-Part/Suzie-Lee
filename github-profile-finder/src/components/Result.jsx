@@ -9,7 +9,7 @@ const Result = ({ userInfo, setUserInfo }) => {
       <h3>{userInfo.name}</h3>
       <h4>{userInfo.login}</h4>
       <p>{userInfo.bio}</p>
-      <a href={userInfo.html_url} target="_blank">
+      <a href={userInfo.html_url} target="_blank" rel="noreferrer">
         Visit Github
       </a>
       <Ul>

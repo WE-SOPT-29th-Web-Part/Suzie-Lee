@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Result from "./components/Result";
 import SearchBar from "./components/SearchBar";
 import styled from "styled-components";
+import Result2 from "./components/Result2";
 
 function App() {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({ data: null, status: "idle" });
+  //api 통신 상태에 따른 분기처리
+
+  useEffect(() => {
+    console.log(userInfo);
+  }, [userInfo]);
+
   return (
     <Root>
       <Header />
       <SearchBar setUserInfo={setUserInfo} />
-      <Result userInfo={userInfo} setUserInfo={setUserInfo} />
+      <Result2 userInfo={userInfo} setUserInfo={setUserInfo} />
     </Root>
   );
 }
