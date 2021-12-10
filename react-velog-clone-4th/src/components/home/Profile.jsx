@@ -13,7 +13,7 @@ const Profile = () => {
         <img src={profileImg} alt="profile" />
         <div>
           <h3>이수진</h3>
-          <h4>안녕하세요.</h4>
+          <h4>Hello.</h4>
         </div>
       </StyledProfile>
       <StyledCenterLine></StyledCenterLine>
